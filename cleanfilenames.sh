@@ -1,9 +1,9 @@
-FILES=$(ls *.jpg)
+read -p "What extension files you want to clean up? (e.g .jpg)" EXTENSION
+FILES=$(ls *$EXTENSION)
 NUMBER=1
-EXTENSION=".jpg"
 for FILE in $FILES
     do
-        echo "Renaming $FILE to $NUMBER-$FILE"
         mv $FILE $NUMBER$EXTENSION
         ((NUMBER++))
 done
+echo "All files were renamed succesfully :)"
